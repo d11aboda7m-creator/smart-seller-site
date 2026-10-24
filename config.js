@@ -4,7 +4,7 @@
 //   paypalLink: رابط دفع من حساب PayPal التجاري (Payment Links and Buttons) إذا عندك واحد.
 // لا تضع هنا أي مفتاح سري أو Client Secret؛ الرابط وحده يكفي.
 window.SALES = {
-  paypalMe: '',            // مثال: 'yourname' يصير https://paypal.me/yourname/89USD
+  paypalMe: 'wiseguidance',            // مثال: 'yourname' يصير https://paypal.me/yourname/89USD
   paypalLink: '',          // مثال: 'https://www.paypal.com/ncp/payment/XXXXXXXX'
   price: 89,
   currency: 'USD',
