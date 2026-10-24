@@ -4,11 +4,11 @@
 //   paypalLink: رابط دفع من حساب PayPal التجاري (Payment Links and Buttons) إذا عندك واحد.
 // لا تضع هنا أي مفتاح سري أو Client Secret؛ الرابط وحده يكفي.
 window.SALES = {
-  paypalMe: '',            // مثال: 'smartseller' يصير https://paypal.me/smartseller/89USD
+  paypalMe: 'smartseller',            // مثال: 'yourname' يصير https://paypal.me/yourname/89USD
   paypalLink: '',          // مثال: 'https://www.paypal.com/ncp/payment/XXXXXXXX'
   price: 89,
   currency: 'USD',
   deliveryHours: 24,       // خلال كم ساعة ترسل النسخة بعد ما تتأكد من الدفع
-  contactEmail: '',        // إيميلك لاستلام الطلبات والأسئلة
+  contactEmail: 'abdlrhmnaab@gmail.com',        // إيميلك لاستلام الطلبات والأسئلة
   contactWhatsapp: ''      // رقمك بصيغة دولية بدون + (اختياري)، مثال: '9665XXXXXXXX'
 };
