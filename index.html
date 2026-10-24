@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>البائع الذكي</title>
+<meta name="description" content="أداة تشتغل على جهازك لإدارة التواصل مع العملاء بالإيميل والواتساب، ولا ترسل أي رسالة بدون موافقتك. دفعة وحدة 89 دولار عبر PayPal.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;700&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E9EDF2;--sheet:#F7F9FB;--ink:#1A2230;--mut:#566173;--stamp:#2346C2;--rule:#C9D1DC;--hi:#F0C24B;--bubble:#FFFFFF}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--paper:#121721;--sheet:#1A2130;--ink:#E6EAF1;--mut:#9AA5B6;--stamp:#8EA4FF;--rule:#2C3546;--hi:#E2B640;--bubble:#222B3C}}
+:root[data-theme="dark"]{--paper:#121721;--sheet:#1A2130;--ink:#E6EAF1;--mut:#9AA5B6;--stamp:#8EA4FF;--rule:#2C3546;--hi:#E2B640;--bubble:#222B3C}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.75 "IBM Plex Sans Arabic",system-ui,sans-serif}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+h1,h2{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:700;line-height:1.25;margin:0}
+h1{font-size:clamp(34px,7vw,60px);letter-spacing:0}
+h2{font-size:clamp(24px,4vw,32px);margin-bottom:18px}
+p{margin:0 0 14px;max-width:62ch}
+a{color:var(--stamp)}
+:focus-visible{outline:3px solid var(--hi);outline-offset:3px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+.brand{font-family:"Reem Kufi",sans-serif;font-size:22px;font-weight:700}
+.brand small{display:block;font:400 13px "IBM Plex Sans Arabic",sans-serif;color:var(--mut)}
+
+.hero{display:grid;gap:40px;padding:28px 0 64px;align-items:center}
+@media(min-width:860px){.hero{grid-template-columns:1.1fr .9fr}}
+.hero p.lead{font-size:19px;color:var(--mut);margin-top:18px}
+.hero .cta{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:26px}
+
+/* المسودة والختم */
+.draft{position:relative;background:var(--sheet);border:1px solid var(--rule);border-radius:18px;padding:18px 18px 16px;max-width:440px;justify-self:center;width:100%}
+.draft .meta{display:flex;justify-content:space-between;font-size:14px;color:var(--mut);margin-bottom:12px}
+.bubble{background:var(--bubble);border:1px solid var(--rule);border-radius:16px 4px 16px 16px;padding:12px 14px;font-size:16px;line-height:1.7}
+.draft .acts{display:flex;gap:10px;margin-top:14px}
+.draft .acts span{flex:1;text-align:center;border:1px solid var(--rule);border-radius:10px;padding:8px;font-size:15px;color:var(--mut)}
+.draft .acts span.ok{border-color:var(--stamp);color:var(--stamp);font-weight:700}
+.stamp{position:absolute;inset-inline-start:22px;bottom:58px;transform:rotate(-9deg);border:3px solid var(--stamp);color:var(--stamp);border-radius:10px;padding:4px 14px;font:700 22px "Reem Kufi",sans-serif;opacity:.9;background:color-mix(in srgb,var(--sheet) 88%,transparent);pointer-events:none}
+@media(prefers-reduced-motion:no-preference){
+  .stamp{animation:press .5s cubic-bezier(.2,1.6,.4,1) .9s both}
+  @keyframes press{0%{opacity:0;transform:rotate(-9deg) scale(1.9)}100%{opacity:.9;transform:rotate(-9deg) scale(1)}}
+}
+
+section.block{padding:56px 0;border-top:1px solid var(--rule)}
+.feat{list-style:none;padding:0;margin:0;display:grid;gap:22px}
+@media(min-width:760px){.feat{grid-template-columns:1fr 1fr;column-gap:48px}}
+.feat b{display:block;font-size:18px;margin-bottom:2px}
+.feat span{color:var(--mut)}
+
+.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:18px;max-width:640px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:44px 1fr;gap:14px;align-items:start}
+.steps li::before{content:counter(s,arabic-indic);font:700 22px "Reem Kufi",sans-serif;color:var(--stamp);border:2px solid var(--stamp);border-radius:50%;width:44px;height:44px;display:grid;place-items:center}
+.steps li div{padding-top:7px}
+
+.honest{background:var(--sheet);border:1px solid var(--rule);border-inline-start:5px solid var(--hi);border-radius:12px;padding:18px 20px;max-width:720px}
+.honest ul{margin:0;padding-inline-start:20px}.honest li{margin-bottom:6px}
+
+.price{display:grid;gap:24px;align-items:center}
+@media(min-width:760px){.price{grid-template-columns:auto 1fr}}
+.amount{font:700 clamp(56px,11vw,88px)/1 "Reem Kufi",sans-serif;color:var(--stamp)}
+.amount small{font-size:.32em;color:var(--mut);margin-inline-start:6px}
+
+.buy{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 28px;border-radius:12px;background:var(--stamp);color:#fff;font:700 18px "IBM Plex Sans Arabic",sans-serif;text-decoration:none;border:0;cursor:pointer}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .buy{color:#0E1424}}
+:root[data-theme="dark"] .buy{color:#0E1424}
+a.buy[aria-disabled="true"]{background:transparent;color:var(--mut);border:2px dashed var(--rule);cursor:not-allowed}
+.note{font-size:15px;color:var(--mut)}
+.unconf{font-size:15px;color:var(--ink);background:var(--sheet);border:1px dashed var(--hi);border-radius:10px;padding:10px 14px;max-width:520px}
+
+footer{padding:36px 0 48px;border-top:1px solid var(--rule);color:var(--mut);font-size:15px}
+footer a{margin-inline-end:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">البائع الذكي<small>للتواصل مع العملاء بالإيميل والواتساب</small></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <h1>ولا رسالة تطلع لعميل قبل ما توافق عليها</h1>
+        <p class="lead">أداة تشتغل على جهازك. تجهّز فيها رسائلك للمطاعم والعيادات وأي تخصص تستهدفه، توافق على كل رسالة بنفسك، وتعرف من لوحة النتائج أي تخصص يرد عليك أكثر.</p>
+        <div class="cta">
+          <a class="buy js-buy" href="#price">اشترِ بـ 89 دولار عبر PayPal</a>
+          <span class="note">دفعة وحدة، بدون اشتراك</span>
+        </div>
+      </div>
+
+      <div class="draft" aria-label="مثال على رسالة تنتظر موافقتك">
+        <div class="meta"><span>واتساب · مطاعم</span><span>تنتظر موافقتك</span></div>
+        <div class="bubble">هلا أبو فهد، شفت منيو مطعمكم على قوقل ماب وعندي فكرة بسيطة ترفع طلبات التوصيل. يناسبك أرسل لك التفاصيل؟</div>
+        <div class="acts"><span class="ok">وافق وأرسل</span><span>عدّل</span><span>ارفض</span></div>
+        <div class="stamp" aria-hidden="true">تمت الموافقة</div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>وش تحصل</h2>
+      <ul class="feat">
+        <li><b>موافقة على كل رسالة</b><span>الرسائل تنحفظ مسودات، وما يُرسل شيء إلا لما تضغط وافق.</span></li>
+        <li><b>حد يومي لكل قناة</b><span>تحدد كم رسالة إيميل وكم رسالة واتساب في اليوم، والأداة ما تتعداها.</span></li>
+        <li><b>قائمة "لا تتواصل"</b><span>أي عميل يرفض يُسجَّل، والأداة توقف التواصل معه تلقائياً.</span></li>
+        <li><b>واتساب وإيميل</b><span>ربط الواتساب بمسح QR من جوالك أو عبر Cloud API الرسمي، والإيميل عبر SMTP (يشتغل مع جيميل).</span></li>
+        <li><b>لوحة نتائج</b><span>ترتّب تخصصاتك بنسبة الرد والاهتمام والاجتماعات، وما ترتّب تخصص قبل 20 رسالة.</span></li>
+        <li><b>بياناتك عندك</b><span>كل شيء محفوظ على جهازك، وما يطلع لأي سيرفر غير قنوات الإرسال اللي تربطها.</span></li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>كيف تشتري</h2>
+      <ol class="steps">
+        <li><div>تدفع 89 دولار عبر PayPal، بحسابك أو ببطاقتك.</div></li>
+        <li><div>نتأكد من الدفع ونرسل لك نسخة البرنامج على إيميل PayPal خلال <span class="js-hours">24</span> ساعة.</div></li>
+        <li><div>تفك الضغط وتشغّل <code>npm install</code> ثم <code>npm start</code>، وتكمل الإعداد من المتصفح.</div></li>
+      </ol>
+    </section>
+
+    <section class="block">
+      <h2>قبل ما تشتري</h2>
+      <div class="honest">
+        <ul>
+          <li>يحتاج جهاز كمبيوتر عليه Node 22.13 أو أحدث.</li>
+          <li>ربط الواتساب بـ QR غير رسمي، وممكن يتقيّد الرقم. استخدم رقماً مخصصاً وحدوداً منخفضة.</li>
+          <li>الردود تُسجَّل يدوياً حالياً، ما فيه قراءة تلقائية من الإيميل.</li>
+          <li>الأداة ما تضمن ردوداً ولا مبيعات، وتُباع كما هي بدون ضمان.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="block" id="price">
+      <div class="price">
+        <div class="amount">89<small>دولار</small></div>
+        <div>
+          <p>دفعة وحدة تعطيك نسخة البرنامج كاملة.</p>
+          <a class="buy js-buy" id="buy-main" href="#price">ادفع 89 دولار عبر PayPal</a>
+          <p class="note" style="margin-top:12px">الدفع يتم في صفحة PayPal الآمنة، وما نشوف بيانات بطاقتك.</p>
+          <p class="unconf" id="unconf" hidden>الدفع غير متاح حالياً. لصاحب الصفحة: ضع اسم PayPal.me أو رابط الدفع في <code>sales/config.js</code>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <span id="contact-links"></span>
+    <p style="margin-top:10px">البائع الذكي. تُباع النسخة كما هي بدون ضمان.</p>
+  </footer>
+</div>
+
+<script src="config.js"></script>
+<script>
+(function(){
+  var c = window.SALES || {};
+  var price = c.price || 89;
+  var link = typeof c.paypalLink === 'string' ? c.paypalLink.trim() : '';
+  var me = typeof c.paypalMe === 'string' ? c.paypalMe.trim().replace(/^@/, '') : '';
+  if (!link && /^[A-Za-z0-9]{1,20}$/.test(me)) link = 'https://paypal.me/' + me + '/' + price + (c.currency || 'USD');
+  var ok = /^https:\/\/(www\.)?paypal\.(com|me)\//.test(link);
+  document.querySelectorAll('.js-hours').forEach(function(el){ if (c.deliveryHours) el.textContent = c.deliveryHours; });
+  document.querySelectorAll('.js-buy').forEach(function(a){
+    if (a.id === 'buy-main') {
+      if (ok) { a.href = link; a.rel = 'noopener'; }
+      else { a.removeAttribute('href'); a.setAttribute('aria-disabled','true'); a.setAttribute('role','link'); }
+    } else if (ok) { a.href = link; a.rel = 'noopener'; }
+  });
+  document.getElementById('unconf').hidden = ok;
+  var out = [];
+  if (c.contactEmail) out.push('<a href="mailto:' + encodeURIComponent(c.contactEmail).replace('%40','@') + '">راسلنا بالإيميل</a>');
+  if (/^\d{8,15}$/.test(c.contactWhatsapp || '')) out.push('<a href="https://wa.me/' + c.contactWhatsapp + '" rel="noopener">كلمنا واتساب</a>');
+  document.getElementById('contact-links').innerHTML = out.join('');
+})();
+</script>
+</body>
+</html>
